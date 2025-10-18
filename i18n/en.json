@@ -1,0 +1,46 @@
+{
+"site_title": "UofK Engineering Labs Initiative",
+"brand": "UofK Eng Labs",
+"nav_news": "News",
+"nav_take_part": "Take Part",
+"nav_privacy": "Privacy",
+
+
+"hero_title": "Rehabilitating UofK Engineering Labs",
+"hero_subtitle": "A transparent, community-led initiative to restore vital lab facilities.",
+"cta_join": "Join / Volunteer",
+"cta_updates": "See Updates",
+
+
+"about_title": "About the Initiative",
+"about_body": "We are alumni and friends of the University of Khartoum working together to rehabilitate engineering laboratories through fundraising and in-kind support.",
+"transparency_title": "Transparency",
+"transparency_body": "We will publish regular updates and progress reports. Donations are processed by external platforms; we do not store card data.",
+"get_involved_title": "Get Involved",
+"get_involved_body": "Volunteer your time, skills, or network. Fill out the form to tell us how you can help.",
+
+
+"footer_org": "UofK Engineering Labs Initiative",
+"footer_privacy": "Privacy",
+
+
+"news_title": "News & Updates — UofK Engineering Labs",
+"news_h1": "News & Updates",
+"news_item_1": "We launched the initiative website and started collecting volunteer interest.",
+
+
+"take_part_title": "Take Part — UofK Engineering Labs",
+"take_part_h1": "Register your interest",
+"take_part_intro": "Please fill in the form below. We collect only the minimum needed to coordinate volunteers.",
+"enable_js": "Please enable JavaScript to view the form. Alternatively, open it here.",
+
+
+"privacy_title": "Privacy — UofK Engineering Labs",
+"privacy_h1": "Privacy Notice",
+"privacy_intro": "We collect your name and contact details to coordinate this initiative. We do not sell your data. You may request deletion at any time.",
+"privacy_basis": "Legal basis: consent and legitimate interests.",
+"privacy_storage": "Storage: Google Workspace (Forms/Sheets).",
+"privacy_retention": "Retention: reviewed annually; delete on request.",
+"privacy_rights": "Your rights: access, correction, deletion.",
+"privacy_contact": "Contact: org@example.org"
+}
