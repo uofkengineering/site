@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="take_part_title">Take Part — UofK Engineering Labs</title>
+<link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+<header class="container">
+<a class="brand" href="/" data-i18n="brand">UofK Eng Labs</a>
+<nav aria-label="Primary">
+<a href="/news.html" data-i18n="nav_news">News</a>
+<a href="/take-part.html" data-i18n="nav_take_part" aria-current="page">Take Part</a>
+<a href="/privacy.html" data-i18n="nav_privacy">Privacy</a>
+</nav>
+<div class="lang-switch">
+<button id="lang-en" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+<button id="lang-ar" class="lang-btn" data-lang="ar" aria-pressed="false">العربية</button>
+</div>
+</header>
+
+
+<main class="container">
+<h1 data-i18n="take_part_h1">Register your interest</h1>
+<p data-i18n="take_part_intro" class="lead">Please fill in the form below. We collect only the minimum needed to coordinate volunteers.</p>
+
+
+<!-- Replace the src with your Google Form embed URL once created -->
+<div class="form-embed">
+<iframe id="gform" src="" title="Volunteer form" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<noscript>
+<p data-i18n="enable_js">Please enable JavaScript to view the form. Alternatively, open it <a id="gform-link" href="#">here</a>.</p>
+</noscript>
+</div>
+</main>
+
+
+<footer class="container footer">
+<small>&copy; <span id="year"></span> <span data-i18n="footer_org">UofK Engineering Labs Initiative</span>.</small>
+</footer>
+
+
+<script src="/assets/script.js" defer></script>
+</body>
+</html>
