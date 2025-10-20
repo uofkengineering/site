@@ -1,18 +1,19 @@
 :root{
   /* Sudan-inspired palette (high contrast) */
-  --bg:#ffffff;           /* clean white background */
-  --text:#0b1220;         /* deep ink for max readability */
-  --muted:#1f2a44;        /* darker secondary (avoid light grey) */
-  --brand:#0f8b48;        /* Sudan green (primary) */
-  --accent:#ce1126;       /* Sudan red (accent) */
-  --card:#ffffff;         /* cards */
-  --line:#e6e8ee;         /* subtle borders */
+  --bg:#ffffff;
+  --text:#0b1220;
+  --muted:#1f2a44;
+  --brand:#0f8b48;   /* Sudan green (primary) */
+  --accent:#ce1126;  /* Sudan red (accent) */
+  --card:#ffffff;
+  --line:#e6e8ee;
   --shadow:0 6px 24px rgba(11,18,32,.08);
+
+  /* Shared gradient token */
+  --accent-gradient: linear-gradient(90deg,var(--brand),var(--accent));
 }
 
-/* OPTIONAL: if you upload KFGQPC Uthmanic Script Hafs font files to assets/fonts/,
-   uncomment this block and make it first in the font stack below.
-
+/* OPTIONAL: self-host KFGQPC font if you upload it
 @font-face{
   font-family: "KFGQPC Uthmanic Script HAFS";
   src: url("assets/fonts/KFGQPC-Uthmanic-Script-HAFS.woff2") format("woff2"),
@@ -30,7 +31,6 @@ body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  /* Site-wide Arabic Naskh stack (closest to KFGQPC) */
   font-family:
     "KFGQPC Uthmanic Script HAFS",
     "Scheherazade New",
@@ -38,29 +38,22 @@ body{
     "Noto Naskh Arabic",
     "Tajawal",
     system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  line-height:1.95; /* Naskh likes generous line height */
-  font-size:18px;   /* slight bump for legibility */
+  line-height:1.95;
+  font-size:18px;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
 
-h1,h2,h3{
-  letter-spacing:.1px;
-  margin-block:0 .35rem;
-}
-h1{font-weight:700}
-h2{font-weight:700}
-h3{font-weight:700}
-
+h1,h2,h3{letter-spacing:.1px;margin-block:0 .35rem}
+h1,h2,h3{font-weight:700}
 p{margin:.4rem 0 1rem}
 a{color:var(--brand);text-decoration:none}
 a:hover{text-decoration:underline}
-
 img{max-width:100%;height:auto;display:block}
 
 .container{max-width:1100px;margin:0 auto;padding:1rem}
 
-/* Header */
+/* ===== Slimmer Header (applies to all pages) ===== */
 .site-header{
   position:sticky;top:0;
   backdrop-filter:saturate(160%) blur(6px);
@@ -69,20 +62,15 @@ img{max-width:100%;height:auto;display:block}
   z-index:50;
   box-shadow:inset 0 -2px 0 0 var(--brand);
 }
-.header-inner{display:flex;align-items:center;gap:1rem}
-.brand{
-  display:flex;align-items:center;gap:.8rem;
-  text-decoration:none;color:var(--text);font-weight:700;
-}
-.logo{width:84px;height:84px;object-fit:contain}
-.brand span{font-size:1.6rem;font-weight:700}
-
-.main-nav{display:flex;gap:1rem;margin-inline-start:auto;align-items:center}
+.header-inner{display:flex;align-items:center;gap:.8rem;padding-block:.35rem}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--text);font-weight:700}
+.logo{width:56px;height:56px;object-fit:contain}
+.brand span{font-size:1.3rem;font-weight:700}
+.main-nav{display:flex;gap:.8rem;margin-inline-start:auto;align-items:center}
 .main-nav a{color:var(--text);text-decoration:none;font-weight:700}
-.main-nav a.btn,
-.main-nav a.btn-primary{color:#fff} /* button text always readable */
+.main-nav a.btn,.main-nav a.btn-primary{color:#fff}
 
-/* Hero (taller to show more of the picture) */
+/* ===== Hero (original framing/height) ===== */
 .hero{position:relative;isolation:isolate}
 .hero-media{position:relative;height:58svh;min-height:420px;overflow:hidden;margin:0}
 .hero-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(12%)}
@@ -91,16 +79,15 @@ img{max-width:100%;height:auto;display:block}
   background:linear-gradient(180deg,rgba(255,255,255,0.00),rgba(255,255,255,0.90) 60%, var(--bg));
   pointer-events:none; z-index:1;
 }
-/* Ensure text sits above overlay */
 .hero-content{margin-top:-160px; position:relative; z-index:2}
 .hero h1{font-size:clamp(2.2rem,4.4vw,3.1rem); margin:0 0 .5rem}
 .lead{color:var(--text);opacity:.98;font-size:1.2rem;margin:0 0 1rem}
 .cta{display:flex;gap:.9rem;flex-wrap:wrap}
 
-/* Buttons */
+/* ===== Buttons ===== */
 .btn{
   display:inline-block;
-  padding:.95rem 1.35rem;
+  padding:.9rem 1.2rem;
   border-radius:1rem;
   font-weight:700;
   text-decoration:none;
@@ -112,18 +99,16 @@ img{max-width:100%;height:auto;display:block}
 .btn-primary:hover{filter:brightness(.95);transform:translateY(-1px)}
 .btn-ghost{background:#fff;border-color:var(--line);color:var(--text)}
 .btn-ghost:hover{border-color:var(--brand);color:var(--brand)}
-.btn-primary.accent{background:var(--accent)} /* optional red */
-
-/* Focus visibility (keyboard a11y) */
+.btn-primary.accent{background:var(--accent)}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:.5rem}
 
-/* ===== 3 Cards — centered as a block with equal side margins ===== */
+/* ===== Intro Cards ===== */
 .grid{
   display:grid;
   grid-template-columns:repeat(3, minmax(0, 1fr));
   gap:1.2rem;
   margin:2rem auto;
-  max-width:1000px; /* narrower than container to force visible side margins */
+  max-width:1000px;
   width:100%;
   align-items:stretch;
 }
@@ -133,23 +118,67 @@ img{max-width:100%;height:auto;display:block}
   border-radius:1rem;
   padding:1.2rem;
   box-shadow:var(--shadow);
+  display:flex;                 /* normalize bottoms between cards */
+  flex-direction:column;
 }
 
-/* Thin Sudan accent under card headings */
-.card h2{
+/* Unified accent underline — inside the element box everywhere */
+.card h2,
+.stat .num,
+.memo-card h2,
+.proposals h3,
+.news-item h2{
   position:relative;
-  padding-block-end:.4rem;
+  padding-block-end:.8rem;   /* space for the line without affecting outer gap */
 }
-.card h2::after{
+.card h2::after,
+.stat .num::after,
+.memo-card h2::after,
+.proposals h3::after,
+.news-item h2::after{
   content:"";
   position:absolute;
-  inset-inline-end:0; inset-block-end:-.2rem;
-  width:72px; height:4px;
-  background:linear-gradient(90deg,var(--brand),var(--accent));
+  inset-inline:0;            /* full width inside padded area (RTL/LTR safe) */
+  inset-block-end:0;         /* keep the line inside the element box */
+  height:4px;
+  background:var(--accent-gradient);
   border-radius:2px;
 }
 
-/* ===== Memo (founding memo & proposals) — inside a CARD ===== */
+/* Remove trailing bottom margin on last child for consistent card bottoms */
+.card > :last-child,
+.news-item > :last-child {
+  margin-bottom: 0;
+}
+
+/* ===== Stats Cards ===== */
+.stats{margin:-.2rem auto 2rem; width:100%}
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:1.2rem;
+  max-width:1000px;
+  margin:0 auto;
+}
+.stat{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:1rem;
+  padding:1.1rem 1rem 1.2rem;
+  text-align:center;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+}
+.stat .num{
+  display:block;
+  font-size:clamp(2rem,4.5vw,2.6rem);
+  font-weight:800;
+  line-height:1.1;
+}
+.stat .label{color:var(--muted);margin-top:.35rem}
+
+/* ===== Memo (founding memo & proposals) ===== */
 .memo{margin-block:2rem}
 .memo-card{
   background:var(--card);
@@ -157,21 +186,48 @@ img{max-width:100%;height:auto;display:block}
   border-radius:1rem;
   padding:1.2rem;
   box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
 }
-.section-head{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
-.memo-logo{width:72px;height:72px;object-fit:contain}
-.note{font-size:1.25rem}
-.proposals h3{margin:.5rem 0 1rem}
-.proposals ol{padding-inline-start:1.2rem}
-.proposals li{margin:.5rem 0}
-.proposals ul{margin:.5rem 0 1rem;padding-inline-start:1.2rem}
+.section-head{display:flex;align-items:center;gap:1rem;margin-bottom:.6rem}
+.memo-logo{width:64px;height:64px;object-fit:contain}
+
+/* Divider uses the same line style for perfect consistency */
+.memo-divider{
+  height:4px;
+  background:var(--accent-gradient);
+  border-radius:2px;
+  margin:.6rem 0 1rem;
+}
+
+.proposals h3{margin:.4rem 0 1rem}
+.proposals p{margin:.4rem 0 .8rem}
+.proposals ol{padding-inline-start:1.2rem;margin:0 0 .6rem}
+.proposals li{margin:.55rem 0}
+.proposals strong{display:inline-block;margin-bottom:.15rem;color:var(--muted)}
+.proposals ul{margin:.35rem 0 .8rem;padding-inline-start:1.2rem}
 .muted{color:var(--text);opacity:.95}
 .memo-cta{margin-top:1rem}
 
-/* News */
-.news-item h2{font-size:1.08rem;margin:.4rem 0}
+/* ===== News list polish ===== */
+.news-list{display:grid;gap:1.2rem;margin-block:1rem 2rem}
+.news-item{
+  padding:1rem 1.1rem;
+  border:1px solid var(--line);
+  border-radius:1rem;
+  box-shadow:var(--shadow);
+  background:var(--card);
+  transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+.news-item:hover{
+  transform:translateY(-1px);
+  border-color:color-mix(in oklab, var(--brand) 30%, var(--line));
+  box-shadow:0 10px 28px rgba(11,18,32,.10);
+}
+.news-item h2{font-size:1.15rem;margin:.2rem 0 .35rem}
+.news-item time{display:inline-block;font-size:.95rem;color:var(--muted);margin-bottom:.25rem}
 
-/* Form */
+/* ===== Form ===== */
 .form-embed iframe{
   width:100%;
   min-height:1200px;
@@ -183,7 +239,7 @@ img{max-width:100%;height:auto;display:block}
 .page-head{margin:1rem 0}
 .form-note{color:var(--text);opacity:.95;margin-top:1rem}
 
-/* Footer */
+/* ===== Footer ===== */
 .site-footer{
   border-top:1px solid var(--line);
   background:#fff;
@@ -197,17 +253,92 @@ img{max-width:100%;height:auto;display:block}
 /* ===== Responsive ===== */
 @media (max-width:1024px){
   .hero-content{margin-top:-140px}
-  .grid{
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-    max-width: 720px;
-  }
+  .grid{grid-template-columns:repeat(2, minmax(0, 1fr));max-width:720px}
+  .stats-grid{grid-template-columns:repeat(3, minmax(0,1fr));max-width:720px}
+  .logo{width:52px;height:52px}
 }
 @media (max-width:640px){
   .hero-content{margin-top:-120px}
-  .logo{width:72px;height:72px}
-  .brand span{font-size:1.4rem}
-  .grid{
-    grid-template-columns:1fr;
-    max-width: 520px;
+  .logo{width:48px;height:48px}
+  .brand span{font-size:1.15rem}
+  .grid{grid-template-columns:1fr;max-width:520px}
+  .stats-grid{grid-template-columns:1fr;max-width:520px}
+}
+
+
+/* ===== Take-part: two-column layout ===== */
+.two-col{
+  display:grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(520px, 2.2fr); /* left smaller, right larger */
+  gap:1.2rem;
+  align-items:start;
+}
+
+/* Stack the sidebar cards vertically with consistent gaps */
+.sidebar{
+  display:flex;
+  flex-direction:column;
+  gap:1.2rem;
+}
+
+/* Ensure the form column stretches nicely */
+.form-pane{
+  min-width:0; /* prevent overflow in grid */
+}
+
+/* Make the form iframe a bit taller here (the right column has room) */
+.form-pane .form-embed iframe{
+  min-height: 1400px;
+}
+
+/* Responsive: stack on narrow screens */
+@media (max-width: 1024px){
+  .two-col{
+    grid-template-columns: 1fr;
   }
+  .form-pane .form-embed iframe{
+    min-height: 1200px;
+  }
+}
+
+
+/* ===== Take-part: two-column layout (FORM left wide, SIDEBAR right slim) ===== */
+.two-col{
+  display:grid;
+  /* Left (form) wider, right (sidebar) slimmer */
+  grid-template-columns: minmax(520px, 2.2fr) minmax(260px, 1fr);
+  grid-template-areas: "form aside";
+  gap:1.2rem;
+  align-items:start;
+}
+.form-pane{ grid-area: form; min-width:0; }
+.sidebar  { grid-area: aside; display:flex; flex-direction:column; gap:1.2rem; }
+
+/* Taller form embed in this context */
+.form-pane .form-embed iframe{ min-height: 1400px; }
+
+/* FAQ question underline — same accent line */
+.faq-q{
+  position:relative;
+  padding-block-end:.8rem;
+}
+.faq-q::after{
+  content:"";
+  position:absolute;
+  inset-inline:0;
+  inset-block-end:0;
+  height:4px;
+  background:var(--accent-gradient);
+  border-radius:2px;
+}
+
+/* Responsive: stack on narrow screens */
+@media (max-width: 1024px){
+  .two-col{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "form"
+      "aside";
+  }
+  .form-pane .form-embed iframe{ min-height: 1200px; }
 }

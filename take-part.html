@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>شارك — مبادرة معامل هندسة الخرطوم</title>
+  <meta name="description" content="طرق المشاركة في مبادرة تأهيل معامل كلية الهندسة بجامعة الخرطوم: تبرع مالي، رعاية معمل، خبرة فنية، تحمل مسؤولية، وشبكات اتصال." />
   <link rel="stylesheet" href="assets/styles.css" />
   <!-- Arabic Naskh fonts similar to KFGQPC Hafs -->
   <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
@@ -11,7 +12,10 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html"><img src="assets/img/uofk-logo1.png" alt="شعار جامعة الخرطوم" class="logo" /><span>مبادرة معامل الهندسة</span></a>
+      <a class="brand" href="index.html" aria-label="الصفحة الرئيسية">
+        <img src="assets/img/uofk-logo1.png" alt="شعار جامعة الخرطوم" class="logo" />
+        <span>مبادرة معامل الهندسة</span>
+      </a>
       <nav class="main-nav" aria-label="التنقل الرئيسي">
         <a href="news.html">الأخبار</a>
         <a href="take-part.html" aria-current="page" class="btn btn-primary">شارك الآن</a>
@@ -23,21 +27,61 @@
   <main class="container">
     <header class="page-head">
       <h1>سجّل اهتمامك بالمشاركة</h1>
-      <p class="lead">نموذج بسيط لجمع البيانات اللازمة للتنسيق فقط.</p>
+      <p class="lead">التركيز الأساسي هو <strong>التبرعات المالية</strong> لتسريع إعادة تشغيل المعامل، مع فتح الباب أيضًا لـ <strong>الخبرة الفنية</strong> و<strong>تحمّل المسؤولية</strong> و<strong>بناء الشراكات</strong>.</p>
     </header>
-
-    <div class="form-embed">
-      <!-- ضع رابط Google Form (embed) في الخاصية src -->
-      <iframe id="gform" src="" title="نموذج المشاركة" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <noscript>
-        <p>يرجى تفعيل JavaScript لعرض الاستمارة. أو افتحها من <a id="gform-link" href="#">هذا الرابط</a>.</p>
-      </noscript>
-    </div>
-
-    <aside class="form-note">
-      <p>نلتزم بحماية بياناتك واستخدامها لأغراض المبادرة فقط. يمكنك طلب حذف بياناتك في أي وقت.</p>
-    </aside>
   </main>
+
+  <!-- Two-column layout (FORM wide on the LEFT, CARDS slim on the RIGHT) -->
+  <section class="container two-col" aria-label="طرق المشاركة ونموذج التسجيل">
+    <!-- Wide LEFT column: the form + FAQ -->
+    <section class="form-pane" aria-label="نموذج التسجيل">
+      <article class="card">
+        <h2>نموذج التسجيل</h2>
+        <p>اختر طريقة مشاركتك (تبرّع مالي/رعاية/خبرة/مسؤولية/شبكات)، وسنتواصل معك قريبًا.</p>
+        <div class="form-embed">
+          <!-- src يُملأ بواسطة script.js عبر ?form= -->
+          <iframe
+            id="gform"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfmoqU57bxAt-gbs-dtNwsW9ElK2H_PjonvH9QL0vqOXv4Fyg/viewform?usp=dialog"
+            title="نموذج المشاركة"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            sandbox="allow-forms allow-scripts allow-same-origin"
+          ></iframe>
+          <noscript>
+            <p>يرجى تفعيل JavaScript لعرض الاستمارة. أو افتحها من <a id="gform-link" href="#">هذا الرابط</a>.</p>
+          </noscript>
+        </div>
+        <aside class="form-note">
+          <p>نلتزم بحماية بياناتك واستخدامها لأغراض المبادرة فقط. يمكنك طلب حذف بياناتك في أي وقت.</p>
+        </aside>
+      </article>
+    </section>
+
+    <!-- Slim RIGHT column: selected motivation/how-to cards (5 best) -->
+    <aside class="sidebar" aria-label="طرق المشاركة">
+      <article class="card">
+        <h2>تبرّع مالي (الأولوية)</h2>
+        <p>الأسرع أثرًا. يمكن التبرع لمرة واحدة أو شهريًا. التفاصيل البنكية/المنصة ستُنشر بعد الاعتماد الرسمي.</p>
+      </article>
+      <article class="card">
+        <h2>رعاية معمل/أجهزة</h2>
+        <p>تكفّل بتجهيز معمل أو أجهزة/رخص برمجية، مع ذكر الرعاية ولوحة تعريفية بالمساهمة.</p>
+      </article>
+      <article class="card">
+        <h2>خبرة فنية</h2>
+        <p>شراء فني، معايرة وصيانة، مناهج عملية، وسلامة المختبرات.</p>
+      </article>
+      <article class="card">
+        <h2>تحمّل مسؤولية</h2>
+        <p>قد فريقًا صغيرًا (مشتريات، صيانة، برمجة/موقع، تواصل، تقارير، تمويل) بمخرجات وزمن محدد.</p>
+      </article>
+      <article class="card">
+        <h2>شبكة اتصال</h2>
+        <p>عرّفنا على جهات مانحة، شركات، منظّمات، وخريجين قادرين على الدعم المادي أو المهني.</p>
+      </article>
+    </aside>
+  </section>
 
   <footer class="site-footer">
     <div class="container footer-inner">

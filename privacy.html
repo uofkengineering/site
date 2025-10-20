@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>الخصوصية — مبادرة معامل هندسة الخرطوم</title>
+  <meta name="description" content="كيف نحمي بياناتك ونستخدمها بشفافية ضمن مبادرة تأهيل معامل كلية الهندسة بجامعة الخرطوم." />
   <link rel="stylesheet" href="assets/styles.css" />
   <!-- Arabic Naskh fonts similar to KFGQPC Hafs -->
   <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
@@ -11,7 +12,10 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html"><img src="assets/img/uofk-logo1.png" alt="شعار جامعة الخرطوم" class="logo" /><span>مبادرة معامل الهندسة</span></a>
+      <a class="brand" href="index.html" aria-label="الصفحة الرئيسية">
+        <img src="assets/img/uofk-logo1.png" alt="شعار جامعة الخرطوم" class="logo" />
+        <span>مبادرة معامل الهندسة</span>
+      </a>
       <nav class="main-nav" aria-label="التنقل الرئيسي">
         <a href="news.html">الأخبار</a>
         <a href="take-part.html" class="btn btn-primary">شارك الآن</a>
@@ -20,23 +24,77 @@
     </div>
   </header>
 
-  <main class="container">
-    <h1>إشعار الخصوصية</h1>
-    <ul class="privacy-list">
-      <li><strong>ما نجمعه:</strong> الاسم وتفاصيل التواصل ومجال المساهمة.</li>
-      <li><strong>الغرض:</strong> تنسيق أعمال المبادرة والتواصل حول المستجدات.</li>
-      <li><strong>التخزين:</strong> خدمات Google (النماذج/الجداول). لا نبيع بياناتك.</li>
-      <li><strong>الأساس القانوني:</strong> موافقتك ومصلحتنا المشروعة لتنظيم المبادرة.</li>
-      <li><strong>الاحتفاظ:</strong> مراجعة سنوية والحذف عند الطلب.</li>
-      <li><strong>حقوقك:</strong> الوصول والتصحيح والحذف.</li>
-      <li><strong>تواصل:</strong> <a href="mailto:contact@example.org">contact@example.org</a></li>
-    </ul>
+  <main>
+    <section class="container">
+      <header class="page-head">
+        <h1>إشعار الخصوصية</h1>
+        <p class="lead">نحن نلتزم بالشفافية وحماية بياناتك. فيما يلي ملخص واضح لكيفية جمع المعلومات واستخدامها وحفظها وحقوقك كاملة.</p>
+      </header>
+    </section>
+
+    <!-- Cards grid -->
+    <section class="container grid" aria-label="تفاصيل سياسة الخصوصية">
+      <article class="card">
+        <h2>ما الذي نجمعه؟</h2>
+        <p>الاسم، وسائل التواصل (الهاتف/البريد الإلكتروني)، سنة التخرج، القسم/مجال التخصص، وطبيعة المساهمة التي تفضّلها.</p>
+      </article>
+
+      <article class="card">
+        <h2>لماذا نجمعه؟</h2>
+        <p>لتنسيق الأعمال التطوعية والاتصال حول المستجدات والفعاليات والتوزيع الأمثل للمهام ضمن المبادرة.</p>
+      </article>
+
+      <article class="card">
+        <h2>أين نحفظ بياناتك؟</h2>
+        <p>خدمات Google الموثوقة (نماذج/جداول). لا نبيع بياناتك ولا نشاركها لأغراض تسويقية.</p>
+      </article>
+
+      <article class="card">
+        <h2>الأساس القانوني</h2>
+        <p>موافقتك الصريحة، والمصلحة المشروعة لإدارة المبادرة بكفاءة وشفافية.</p>
+      </article>
+
+      <article class="card">
+        <h2>مدة الاحتفاظ</h2>
+        <p>نقوم بمراجعة سنوية للبيانات ونحذفها عندما تنتفي الحاجة لها أو عند طلبك.</p>
+      </article>
+
+      <article class="card">
+        <h2>حقوقك</h2>
+        <p>لديك حق الوصول، والتصحيح، والحذف، والاعتراض على المعالجة. سنستجيب بسرعة مع التحقق المناسب للهوية.</p>
+      </article>
+    </section>
+
+    <!-- Actions / Contact -->
+    <section class="container grid" aria-label="إجراءات ووسائل تواصل">
+      <article class="card">
+        <h2>طلب الوصول/الحذف</h2>
+        <p>للحصول على نسخة من بياناتك أو طلب حذفها، أرسل لنا رسالة بعنوان واضح، وسنقوم بما يلزم.</p>
+        <p>
+          <a class="btn btn-primary" href="mailto:contact@example.org?subject=%D8%B7%D9%84%D8%A8%20%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA%20%D8%A3%D9%88%20%D8%AD%D8%B0%D9%81">
+            أرسل طلبك الآن
+          </a>
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>الامتثال والخصوصية</h2>
+        <p>نلتزم بالممارسات العالمية وحماية البيانات وفق مبادئ <abbr title="General Data Protection Regulation">GDPR</abbr> قدر الإمكان، مع مراعاة البيئة المحلية.</p>
+        <p class="muted">آخر تحديث: <time datetime="2025-10-20">20-10-2025</time></p>
+      </article>
+
+      <article class="card">
+        <h2>تواصل معنا</h2>
+        <p>للاستفسارات أو الملاحظات المتعلقة بالخصوصية:</p>
+        <p><a href="mailto:contact@example.org">contact@example.org</a></p>
+      </article>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
       <small>© <span id="year"></span> مبادرة معامل هندسة جامعة الخرطوم</small>
-      <a class="footer-link" href="privacy.html">الخصوصية</a>
+      <a class="footer-link" href="privacy.html" aria-current="page">الخصوصية</a>
     </div>
   </footer>
 
