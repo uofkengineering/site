@@ -67,7 +67,7 @@ img{max-width:100%;height:auto;display:block}
   background:linear-gradient(180deg,rgba(255,255,255,0.00),rgba(255,255,255,0.90) 60%, var(--bg));
   pointer-events:none; z-index:1;
 }
-.hero-content{margin-top:-160px; position:relative; z-index:2} /* pull text up a bit more */
+.hero-content{margin-top:-160px; position:relative; z-index:2} /* lift text over image */
 .hero h1{font-size:clamp(2.1rem,4.2vw,3rem); margin:0 0 .5rem}
 .lead{color:var(--text);opacity:.95;font-size:1.14rem;margin:0 0 1rem}
 .cta{display:flex;gap:.9rem;flex-wrap:wrap}
@@ -92,17 +92,16 @@ img{max-width:100%;height:auto;display:block}
 /* Focus visibility (keyboard a11y) */
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:.5rem}
 
-/* ===== Cards / Grid — CENTER EXACTLY ABOVE MEMO CARD =====
-   Use CSS Grid with a fixed 3-column track at desktop so the left/right edges
-   align perfectly with the memo card below (which uses the same container width).
-*/
+/* ===== Center the 3 cards as a block (above the memo card) =====
+   We use CSS Grid with fixed card widths and center the WHOLE grid via justify-content:center.
+   This avoids RTL “right gravity” and keeps the group visually centered. */
 .grid{
   display:grid;
-  grid-template-columns:repeat(3, 1fr); /* exactly 3 columns on wide screens */
+  grid-template-columns:repeat(auto-fit, minmax(300px, 320px)); /* fixed visual width per card */
   gap:1.2rem;
   margin:2rem 0;
-  justify-items:stretch;
-  align-items:stretch;
+  justify-content:center;     /* <<< centers the block of cards within the container */
+  align-content:start;
 }
 .card{
   background:var(--card);
@@ -173,15 +172,10 @@ img{max-width:100%;height:auto;display:block}
 
 /* ===== Responsive ===== */
 @media (max-width:1024px){
-  .grid{
-    grid-template-columns:repeat(2, 1fr); /* 2 cards per row on tablets */
-  }
+  .hero-content{margin-top:-140px}
 }
 @media (max-width:640px){
   .hero-content{margin-top:-120px}
   .logo{width:72px;height:72px}
   .brand span{font-size:1.35rem}
-  .grid{
-    grid-template-columns:1fr; /* 1 card per row on phones */
-  }
 }
