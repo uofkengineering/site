@@ -1,43 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title data-i18n="news_title">News & Updates — UofK Engineering Labs</title>
-<link rel="stylesheet" href="/assets/styles.css" />
-</head>
-<body>
-<header class="container">
-<a class="brand" href="/" data-i18n="brand">UofK Eng Labs</a>
-<nav aria-label="Primary">
-<a href="/news.html" data-i18n="nav_news" aria-current="page">News</a>
-<a href="/take-part.html" data-i18n="nav_take_part">Take Part</a>
-<a href="/privacy.html" data-i18n="nav_privacy">Privacy</a>
-</nav>
-<div class="lang-switch">
-<button id="lang-en" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
-<button id="lang-ar" class="lang-btn" data-lang="ar" aria-pressed="false">العربية</button>
-</div>
-</header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="news_title">News & Updates — UofK Engineering Labs</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <a class="brand" href="/" data-i18n="brand">UofK Eng Labs</a>
+      <nav aria-label="Primary">
+        <a href="/news.html" data-i18n="nav_news" aria-current="page">News</a>
+        <a href="/take-part.html" data-i18n="nav_take_part">Take Part</a>
+        <a href="/privacy.html" data-i18n="nav_privacy">Privacy</a>
+      </nav>
+      <div class="lang-switch">
+        <button
+          id="lang-en"
+          class="lang-btn"
+          data-lang="en"
+          aria-pressed="true"
+        >
+          EN
+        </button>
+        <button
+          id="lang-ar"
+          class="lang-btn"
+          data-lang="ar"
+          aria-pressed="false"
+        >
+          العربية
+        </button>
+      </div>
+    </header>
 
+    <main class="container">
+      <h1 data-i18n="news_h1">News & Updates</h1>
+      <div class="news-list" id="news-list">
+        <!-- You can hand-write updates here or later fetch from a JSON file -->
+        <article class="card">
+          <h2>2025-10-01 — Kickoff</h2>
+          <p data-i18n="news_item_1">
+            We launched the initiative website and started collecting volunteer
+            interest.
+          </p>
+        </article>
+      </div>
+    </main>
 
-<main class="container">
-<h1 data-i18n="news_h1">News & Updates</h1>
-<div class="news-list" id="news-list">
-<!-- You can hand-write updates here or later fetch from a JSON file -->
-<article class="card">
-<h2>2025-10-01 — Kickoff</h2>
-<p data-i18n="news_item_1">We launched the initiative website and started collecting volunteer interest.</p>
-</article>
-</div>
-</main>
+    <footer class="container footer">
+      <small
+        >&copy; <span id="year"></span>
+        <span data-i18n="footer_org">UofK Engineering Labs Initiative</span
+        >.</small
+      >
+    </footer>
 
-
-<footer class="container footer">
-<small>&copy; <span id="year"></span> <span data-i18n="footer_org">UofK Engineering Labs Initiative</span>.</small>
-</footer>
-
-
-<script src="/assets/script.js" defer></script>
-</body>
+    <script src="/assets/script.js" defer></script>
+  </body>
 </html>
