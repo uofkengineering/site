@@ -92,16 +92,17 @@ img{max-width:100%;height:auto;display:block}
 /* Focus visibility (keyboard a11y) */
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:.5rem}
 
-/* ===== Center the 3 cards as a block (above the memo card) =====
-   We use CSS Grid with fixed card widths and center the WHOLE grid via justify-content:center.
-   This avoids RTL “right gravity” and keeps the group visually centered. */
+/* ===== 3 Cards — centered as a block with equal side margins =====
+   We cap the grid width below the container (1000px) and center it.
+   This guarantees visible margin on the right (RTL) and left (LTR). */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(300px, 320px)); /* fixed visual width per card */
+  grid-template-columns:repeat(3, minmax(0, 1fr)); /* 3 equal columns on desktop */
   gap:1.2rem;
-  margin:2rem 0;
-  justify-content:center;     /* <<< centers the block of cards within the container */
-  align-content:start;
+  margin:2rem auto;        /* center the section block */
+  max-width:1000px;        /* <<< narrower than .container (1100px) to create side margins */
+  width:100%;
+  align-items:stretch;
 }
 .card{
   background:var(--card);
@@ -173,9 +174,17 @@ img{max-width:100%;height:auto;display:block}
 /* ===== Responsive ===== */
 @media (max-width:1024px){
   .hero-content{margin-top:-140px}
+  .grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    max-width: 660px;   /* 2 columns + gaps centered */
+  }
 }
 @media (max-width:640px){
   .hero-content{margin-top:-120px}
   .logo{width:72px;height:72px}
   .brand span{font-size:1.35rem}
+  .grid{
+    grid-template-columns:1fr;
+    max-width: 500px;   /* comfortable reading width for single card */
+  }
 }
