@@ -1,66 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title data-i18n="site_title">UofK Engineering Labs Initiative</title>
-<meta name="description" content="Community initiative to rehabilitate the engineering laboratories at the University of Khartoum." />
-<meta property="og:title" content="UofK Engineering Labs Initiative" />
-<meta property="og:description" content="Help us rehabilitate the engineering labs at the University of Khartoum." />
-<meta property="og:type" content="website" />
-<meta name="theme-color" content="#0ea5e9" />
-<link rel="preload" href="/i18n/en.json" as="fetch" crossorigin>
-<link rel="preload" href="/i18n/ar.json" as="fetch" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css" />
-</head>
-<body>
-<header class="container">
-<a class="brand" href="/" data-i18n="brand">UofK Eng Labs</a>
-<nav aria-label="Primary">
-<a href="/news.html" data-i18n="nav_news">News</a>
-<a href="/take-part.html" data-i18n="nav_take_part">Take Part</a>
-<a href="/privacy.html" data-i18n="nav_privacy">Privacy</a>
-</nav>
-<div class="lang-switch">
-<button id="lang-en" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
-<button id="lang-ar" class="lang-btn" data-lang="ar" aria-pressed="false">العربية</button>
-</div>
-</header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="site_title">UofK Engineering Labs Initiative</title>
+    <meta
+      name="description"
+      content="Community initiative to rehabilitate the engineering laboratories at the University of Khartoum."
+    />
+    <meta property="og:title" content="UofK Engineering Labs Initiative" />
+    <meta
+      property="og:description"
+      content="Help us rehabilitate the engineering labs at the University of Khartoum."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0ea5e9" />
+    <link rel="preload" href="/i18n/en.json" as="fetch" crossorigin />
+    <link rel="preload" href="/i18n/ar.json" as="fetch" crossorigin />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <a class="brand" href="/" data-i18n="brand">UofK Eng Labs</a>
+      <nav aria-label="Primary">
+        <a href="/news.html" data-i18n="nav_news">News</a>
+        <a href="/take-part.html" data-i18n="nav_take_part">Take Part</a>
+        <a href="/privacy.html" data-i18n="nav_privacy">Privacy</a>
+      </nav>
+      <div class="lang-switch">
+        <button
+          id="lang-en"
+          class="lang-btn"
+          data-lang="en"
+          aria-pressed="true"
+        >
+          EN
+        </button>
+        <button
+          id="lang-ar"
+          class="lang-btn"
+          data-lang="ar"
+          aria-pressed="false"
+        >
+          العربية
+        </button>
+      </div>
+    </header>
 
+    <main class="container">
+      <section class="hero">
+        <h1 data-i18n="hero_title">Rehabilitating UofK Engineering Labs</h1>
+        <p class="lead" data-i18n="hero_subtitle">
+          A transparent, community-led initiative to restore vital lab
+          facilities.
+        </p>
+        <div class="cta">
+          <a class="btn" href="/take-part.html" data-i18n="cta_join"
+            >Join / Volunteer</a
+          >
+          <a class="btn outline" href="/news.html" data-i18n="cta_updates"
+            >See Updates</a
+          >
+        </div>
+      </section>
 
-<main class="container">
-<section class="hero">
-<h1 data-i18n="hero_title">Rehabilitating UofK Engineering Labs</h1>
-<p class="lead" data-i18n="hero_subtitle">A transparent, community-led initiative to restore vital lab facilities.</p>
-<div class="cta">
-<a class="btn" href="/take-part.html" data-i18n="cta_join">Join / Volunteer</a>
-<a class="btn outline" href="/news.html" data-i18n="cta_updates">See Updates</a>
-</div>
-</section>
+      <section class="grid">
+        <article class="card">
+          <h2 data-i18n="about_title">About the Initiative</h2>
+          <p data-i18n="about_body">
+            We are alumni and friends of the University of Khartoum working
+            together to rehabilitate engineering laboratories through
+            fundraising and in-kind support.
+          </p>
+        </article>
+        <article class="card">
+          <h2 data-i18n="transparency_title">Transparency</h2>
+          <p data-i18n="transparency_body">
+            We will publish regular updates and progress reports. Donations are
+            processed by external platforms; we do not store card data.
+          </p>
+        </article>
+        <article class="card">
+          <h2 data-i18n="get_involved_title">Get Involved</h2>
+          <p data-i18n="get_involved_body">
+            Volunteer your time, skills, or network. Fill out the form to tell
+            us how you can help.
+          </p>
+        </article>
+      </section>
+    </main>
 
+    <footer class="container footer">
+      <small
+        >&copy; <span id="year"></span>
+        <span data-i18n="footer_org">UofK Engineering Labs Initiative</span>.
+        <a href="/privacy.html" data-i18n="footer_privacy">Privacy</a></small
+      >
+    </footer>
 
-<section class="grid">
-<article class="card">
-<h2 data-i18n="about_title">About the Initiative</h2>
-<p data-i18n="about_body">We are alumni and friends of the University of Khartoum working together to rehabilitate engineering laboratories through fundraising and in-kind support.</p>
-</article>
-<article class="card">
-<h2 data-i18n="transparency_title">Transparency</h2>
-<p data-i18n="transparency_body">We will publish regular updates and progress reports. Donations are processed by external platforms; we do not store card data.</p>
-</article>
-<article class="card">
-<h2 data-i18n="get_involved_title">Get Involved</h2>
-<p data-i18n="get_involved_body">Volunteer your time, skills, or network. Fill out the form to tell us how you can help.</p>
-</article>
-</section>
-</main>
-
-
-<footer class="container footer">
-<small>&copy; <span id="year"></span> <span data-i18n="footer_org">UofK Engineering Labs Initiative</span>. <a href="/privacy.html" data-i18n="footer_privacy">Privacy</a></small>
-</footer>
-
-
-<script src="/assets/script.js" defer></script>
-</body>
+    <script src="/assets/script.js" defer></script>
+  </body>
 </html>
