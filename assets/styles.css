@@ -92,15 +92,17 @@ img{max-width:100%;height:auto;display:block}
 /* Focus visibility (keyboard a11y) */
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:.5rem}
 
-/* Cards / Grid — CENTERED (no right shift in RTL) */
+/* ===== Cards / Grid — CENTER EXACTLY ABOVE MEMO CARD =====
+   Use CSS Grid with a fixed 3-column track at desktop so the left/right edges
+   align perfectly with the memo card below (which uses the same container width).
+*/
 .grid{
-  display:flex;
-  flex-wrap:wrap;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr); /* exactly 3 columns on wide screens */
   gap:1.2rem;
   margin:2rem 0;
-  justify-content:center;      /* center the row */
+  justify-items:stretch;
   align-items:stretch;
-  text-align:initial;          /* avoid RTL centering quirks */
 }
 .card{
   background:var(--card);
@@ -108,8 +110,6 @@ img{max-width:100%;height:auto;display:block}
   border-radius:1rem;
   padding:1.2rem;
   box-shadow:var(--shadow);
-  flex:1 1 320px;              /* responsive width */
-  max-width:360px;             /* keep neat column width */
 }
 
 /* Thin Sudan accent under card headings */
@@ -126,7 +126,7 @@ img{max-width:100%;height:auto;display:block}
   border-radius:2px;
 }
 
-/* Memo (founding memo & proposals) — placed INSIDE a card now */
+/* ===== Memo (founding memo & proposals) — inside a CARD ===== */
 .memo{margin-block:2rem}
 .memo-card{
   background:var(--card);
@@ -171,8 +171,17 @@ img{max-width:100%;height:auto;display:block}
 .footer-link{color:var(--text)}
 .footer-link:hover{color:var(--brand);text-decoration:underline}
 
+/* ===== Responsive ===== */
+@media (max-width:1024px){
+  .grid{
+    grid-template-columns:repeat(2, 1fr); /* 2 cards per row on tablets */
+  }
+}
 @media (max-width:640px){
   .hero-content{margin-top:-120px}
   .logo{width:72px;height:72px}
   .brand span{font-size:1.35rem}
+  .grid{
+    grid-template-columns:1fr; /* 1 card per row on phones */
+  }
 }
