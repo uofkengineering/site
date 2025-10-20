@@ -2,10 +2,9 @@
   /* Sudan-inspired palette (high contrast) */
   --bg:#ffffff;           /* clean white background */
   --text:#0b1220;         /* deep ink for max readability */
-  --muted:#1f2a44;        /* darker secondary to avoid low-contrast grey */
+  --muted:#1f2a44;        /* darker secondary (avoid light grey) */
   --brand:#0f8b48;        /* Sudan green (primary) */
   --accent:#ce1126;       /* Sudan red (accent) */
-  --black:#000000;
   --card:#ffffff;         /* cards */
   --line:#e6e8ee;         /* subtle borders */
   --shadow:0 6px 24px rgba(11,18,32,.08);
@@ -19,7 +18,7 @@ body{
   background:var(--bg);
   color:var(--text);
   font-family:"IBM Plex Sans Arabic","Tajawal","Cairo",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  line-height:1.85; /* clearer text rhythm */
+  line-height:1.85;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
@@ -30,8 +29,6 @@ h2{font-weight:800}
 h3{font-weight:700}
 
 p{margin:.4rem 0 1rem}
-
-/* Links default */
 a{color:var(--brand);text-decoration:none}
 a:hover{text-decoration:underline}
 
@@ -46,44 +43,39 @@ img{max-width:100%;height:auto;display:block}
   background:rgba(255,255,255,.9);
   border-bottom:1px solid var(--line);
   z-index:50;
-  /* subtle Sudan accent line */
   box-shadow:inset 0 -2px 0 0 var(--brand);
 }
 .header-inner{display:flex;align-items:center;gap:1rem}
 .brand{
-  display:flex;align-items:center;gap:.7rem;
-  text-decoration:none;color:var(--text);font-weight:800;
+  display:flex;align-items:center;gap:.8rem;
+  text-decoration:none;color:var(--text);font-weight:900;
 }
-.logo{width:64px;height:64px;object-fit:contain} /* ↑ bigger logo */
+.logo{width:84px;height:84px;object-fit:contain}    /* bigger logo */
+.brand span{font-size:1.5rem;font-weight:900}      /* bigger brand text */
+
 .main-nav{display:flex;gap:1rem;margin-inline-start:auto;align-items:center}
-.main-nav a{
-  color:var(--text); /* avoid grey in header */
-  text-decoration:none;font-weight:800;
-}
-
-/* Ensure header button stays readable (override link color) */
+.main-nav a{color:var(--text);text-decoration:none;font-weight:800}
 .main-nav a.btn,
-.main-nav a.btn-primary{color:#fff}
+.main-nav a.btn-primary{color:#fff} /* button text always readable */
 
-/* Hero */
+/* Hero (taller to show more of the picture) */
 .hero{position:relative;isolation:isolate}
-.hero-media{position:relative;height:44svh;min-height:340px;overflow:hidden;margin:0}
+.hero-media{position:relative;height:58svh;min-height:420px;overflow:hidden;margin:0} /* increased height */
 .hero-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(12%)}
 .hero::after{
   content:"";position:absolute;inset:0;
-  background:
-    linear-gradient(180deg,rgba(255,255,255,0.00),rgba(255,255,255,0.90) 60%, var(--bg));
+  background:linear-gradient(180deg,rgba(255,255,255,0.00),rgba(255,255,255,0.90) 60%, var(--bg));
   pointer-events:none; z-index:1;
 }
-.hero-content{margin-top:-120px; position:relative; z-index:2}
-.hero h1{font-size:clamp(1.9rem,3.8vw,2.8rem); margin:0 0 .5rem}
-.lead{color:var(--text);opacity:.92;font-size:1.12rem;margin:0 0 1rem} /* no grey in lead */
-.cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.hero-content{margin-top:-160px; position:relative; z-index:2} /* pull text up a bit more */
+.hero h1{font-size:clamp(2.1rem,4.2vw,3rem); margin:0 0 .5rem}
+.lead{color:var(--text);opacity:.95;font-size:1.14rem;margin:0 0 1rem}
+.cta{display:flex;gap:.9rem;flex-wrap:wrap}
 
 /* Buttons */
 .btn{
   display:inline-block;
-  padding:.8rem 1.2rem;
+  padding:.9rem 1.25rem;
   border-radius:1rem;
   font-weight:900;
   text-decoration:none;
@@ -100,14 +92,15 @@ img{max-width:100%;height:auto;display:block}
 /* Focus visibility (keyboard a11y) */
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:.5rem}
 
-/* Cards / Grid */
+/* Cards / Grid — CENTERED (no right shift in RTL) */
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  display:flex;
+  flex-wrap:wrap;
   gap:1.2rem;
   margin:2rem 0;
-  justify-content:center;   /* center tracks in RTL too */
-  align-items:start;
+  justify-content:center;      /* center the row */
+  align-items:stretch;
+  text-align:initial;          /* avoid RTL centering quirks */
 }
 .card{
   background:var(--card);
@@ -115,9 +108,11 @@ img{max-width:100%;height:auto;display:block}
   border-radius:1rem;
   padding:1.2rem;
   box-shadow:var(--shadow);
+  flex:1 1 320px;              /* responsive width */
+  max-width:360px;             /* keep neat column width */
 }
 
-/* Add a thin Sudan accent to card headings */
+/* Thin Sudan accent under card headings */
 .card h2{
   position:relative;
   padding-block-end:.4rem;
@@ -126,21 +121,28 @@ img{max-width:100%;height:auto;display:block}
   content:"";
   position:absolute;
   inset-inline-end:0; inset-block-end:-.2rem;
-  width:64px; height:4px;
+  width:72px; height:4px;
   background:linear-gradient(90deg,var(--brand),var(--accent));
   border-radius:2px;
 }
 
-/* Memo (founding memo & proposals) */
+/* Memo (founding memo & proposals) — placed INSIDE a card now */
 .memo{margin-block:2rem}
+.memo-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:1rem;
+  padding:1.2rem;
+  box-shadow:var(--shadow);
+}
 .section-head{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
-.memo-logo{width:64px;height:64px;object-fit:contain}
+.memo-logo{width:72px;height:72px;object-fit:contain}
 .note{font-size:1.25rem}
 .proposals h3{margin:.5rem 0 1rem}
 .proposals ol{padding-inline-start:1.2rem}
 .proposals li{margin:.5rem 0}
 .proposals ul{margin:.5rem 0 1rem;padding-inline-start:1.2rem}
-.muted{color:var(--text);opacity:.9} /* keep readable; no light grey */
+.muted{color:var(--text);opacity:.9}
 .memo-cta{margin-top:1rem}
 
 /* News */
@@ -156,14 +158,13 @@ img{max-width:100%;height:auto;display:block}
   box-shadow:var(--shadow);
 }
 .page-head{margin:1rem 0}
-.form-note{color:var(--text);opacity:.9;margin-top:1rem}
+.form-note{color:var(--text);opacity:.95;margin-top:1rem}
 
 /* Footer */
 .site-footer{
   border-top:1px solid var(--line);
   background:#fff;
   margin-top:2rem;
-  /* subtle top stripe in Sudan colors */
   box-shadow:inset 0 4px 0 -2px var(--brand), inset 0 6px 0 -2px var(--accent);
 }
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem}
@@ -171,6 +172,7 @@ img{max-width:100%;height:auto;display:block}
 .footer-link:hover{color:var(--brand);text-decoration:underline}
 
 @media (max-width:640px){
-  .hero-content{margin-top:-80px}
-  .logo{width:56px;height:56px}
+  .hero-content{margin-top:-120px}
+  .logo{width:72px;height:72px}
+  .brand span{font-size:1.35rem}
 }
