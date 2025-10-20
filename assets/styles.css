@@ -10,6 +10,19 @@
   --shadow:0 6px 24px rgba(11,18,32,.08);
 }
 
+/* OPTIONAL: if you upload KFGQPC Uthmanic Script Hafs font files to assets/fonts/,
+   uncomment this block and make it first in the font stack below.
+
+@font-face{
+  font-family: "KFGQPC Uthmanic Script HAFS";
+  src: url("assets/fonts/KFGQPC-Uthmanic-Script-HAFS.woff2") format("woff2"),
+       url("assets/fonts/KFGQPC-Uthmanic-Script-HAFS.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 
@@ -17,15 +30,26 @@ body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family:"IBM Plex Sans Arabic","Tajawal","Cairo",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  line-height:1.85;
+  /* Site-wide Arabic Naskh stack (closest to KFGQPC) */
+  font-family:
+    "KFGQPC Uthmanic Script HAFS",
+    "Scheherazade New",
+    "Amiri",
+    "Noto Naskh Arabic",
+    "Tajawal",
+    system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  line-height:1.95; /* Naskh likes generous line height */
+  font-size:18px;   /* slight bump for legibility */
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
 
-h1,h2,h3{letter-spacing:.1px;margin-block:0 .35rem}
-h1{font-weight:800}
-h2{font-weight:800}
+h1,h2,h3{
+  letter-spacing:.1px;
+  margin-block:0 .35rem;
+}
+h1{font-weight:700}
+h2{font-weight:700}
 h3{font-weight:700}
 
 p{margin:.4rem 0 1rem}
@@ -48,36 +72,37 @@ img{max-width:100%;height:auto;display:block}
 .header-inner{display:flex;align-items:center;gap:1rem}
 .brand{
   display:flex;align-items:center;gap:.8rem;
-  text-decoration:none;color:var(--text);font-weight:900;
+  text-decoration:none;color:var(--text);font-weight:700;
 }
-.logo{width:84px;height:84px;object-fit:contain}    /* bigger logo */
-.brand span{font-size:1.5rem;font-weight:900}      /* bigger brand text */
+.logo{width:84px;height:84px;object-fit:contain}
+.brand span{font-size:1.6rem;font-weight:700}
 
 .main-nav{display:flex;gap:1rem;margin-inline-start:auto;align-items:center}
-.main-nav a{color:var(--text);text-decoration:none;font-weight:800}
+.main-nav a{color:var(--text);text-decoration:none;font-weight:700}
 .main-nav a.btn,
 .main-nav a.btn-primary{color:#fff} /* button text always readable */
 
 /* Hero (taller to show more of the picture) */
 .hero{position:relative;isolation:isolate}
-.hero-media{position:relative;height:58svh;min-height:420px;overflow:hidden;margin:0} /* increased height */
+.hero-media{position:relative;height:58svh;min-height:420px;overflow:hidden;margin:0}
 .hero-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(12%)}
 .hero::after{
   content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(255,255,255,0.00),rgba(255,255,255,0.90) 60%, var(--bg));
   pointer-events:none; z-index:1;
 }
-.hero-content{margin-top:-160px; position:relative; z-index:2} /* lift text over image */
-.hero h1{font-size:clamp(2.1rem,4.2vw,3rem); margin:0 0 .5rem}
-.lead{color:var(--text);opacity:.95;font-size:1.14rem;margin:0 0 1rem}
+/* Ensure text sits above overlay */
+.hero-content{margin-top:-160px; position:relative; z-index:2}
+.hero h1{font-size:clamp(2.2rem,4.4vw,3.1rem); margin:0 0 .5rem}
+.lead{color:var(--text);opacity:.98;font-size:1.2rem;margin:0 0 1rem}
 .cta{display:flex;gap:.9rem;flex-wrap:wrap}
 
 /* Buttons */
 .btn{
   display:inline-block;
-  padding:.9rem 1.25rem;
+  padding:.95rem 1.35rem;
   border-radius:1rem;
-  font-weight:900;
+  font-weight:700;
   text-decoration:none;
   border:1px solid transparent;
   box-shadow:var(--shadow);
@@ -92,15 +117,13 @@ img{max-width:100%;height:auto;display:block}
 /* Focus visibility (keyboard a11y) */
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:.5rem}
 
-/* ===== 3 Cards — centered as a block with equal side margins =====
-   We cap the grid width below the container (1000px) and center it.
-   This guarantees visible margin on the right (RTL) and left (LTR). */
+/* ===== 3 Cards — centered as a block with equal side margins ===== */
 .grid{
   display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr)); /* 3 equal columns on desktop */
+  grid-template-columns:repeat(3, minmax(0, 1fr));
   gap:1.2rem;
-  margin:2rem auto;        /* center the section block */
-  max-width:1000px;        /* <<< narrower than .container (1100px) to create side margins */
+  margin:2rem auto;
+  max-width:1000px; /* narrower than container to force visible side margins */
   width:100%;
   align-items:stretch;
 }
@@ -142,7 +165,7 @@ img{max-width:100%;height:auto;display:block}
 .proposals ol{padding-inline-start:1.2rem}
 .proposals li{margin:.5rem 0}
 .proposals ul{margin:.5rem 0 1rem;padding-inline-start:1.2rem}
-.muted{color:var(--text);opacity:.9}
+.muted{color:var(--text);opacity:.95}
 .memo-cta{margin-top:1rem}
 
 /* News */
@@ -176,15 +199,15 @@ img{max-width:100%;height:auto;display:block}
   .hero-content{margin-top:-140px}
   .grid{
     grid-template-columns:repeat(2, minmax(0, 1fr));
-    max-width: 660px;   /* 2 columns + gaps centered */
+    max-width: 720px;
   }
 }
 @media (max-width:640px){
   .hero-content{margin-top:-120px}
   .logo{width:72px;height:72px}
-  .brand span{font-size:1.35rem}
+  .brand span{font-size:1.4rem}
   .grid{
     grid-template-columns:1fr;
-    max-width: 500px;   /* comfortable reading width for single card */
+    max-width: 520px;
   }
 }
